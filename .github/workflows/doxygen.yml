@@ -1,0 +1,41 @@
+name: Generate Doxygen Documentation
+
+on:
+  push:
+    branches:
+      - main  # Ausführung bei Pushes auf den 'main' Branch
+  workflow_dispatch:  # Manuelles Auslösen der Action
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Schritt 1: Check-out des aktuellen Repositorys
+      - name: Checkout current repository
+        uses: actions/checkout@v3
+
+      # Schritt 2: Klonen des anderen Repositorys
+      - name: Clone external repository
+        run: |
+          git clone https://github.com/sinricpro/esp8266-esp32-sdk SinricPro
+          cd SinricPro
+          # Optional: Du kannst auch eine bestimmte Branch oder einen Commit klonen
+          # git checkout BRANCH_NAME
+
+      # Schritt 3: Installiere Doxygen
+      - name: Install Doxygen
+        run: sudo apt-get install -y doxygen graphviz
+
+      # Schritt 4: Führe Doxygen aus, um die Dokumentation zu generieren
+      - name: Generate Documentation
+        run: |
+          cd SinricPro  # Wechsle ins Verzeichnis des geklonten Repos
+          doxygen Doxyfile
+
+      # Schritt 5: Veröffentlichung der Dokumentation (z.B. auf gh-pages)
+      #- name: Deploy to GitHub Pages
+      #  uses: peaceiris/actions-gh-pages@v3
+      #  with:
+      #    github_token: ${{ secrets.GITHUB_TOKEN }}
+      #    publish_dir: ./SinricPro/docs  # Pfad zur generierten Dokumentation
