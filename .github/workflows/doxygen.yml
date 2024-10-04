@@ -25,7 +25,8 @@ jobs:
 
       # Schritt 3: Installiere Doxygen
       - name: Install Doxygen
-        # run: sudo apt-get install -y doxygen graphviz
+        run: |
+          # sudo apt-get install -y doxygen graphviz
 
       # Schritt 4: Führe Doxygen aus, um die Dokumentation zu generieren
       - name: Generate Documentation
