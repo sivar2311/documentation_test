@@ -398,7 +398,15 @@ Typedefs</h2></td></tr>
 </dl>
 <h1><a class="anchor" id="AdjustBandsCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line">std::map&lt;String, int&gt; equalizerBands;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> onAdjustBands(<span class="keyword">const</span> String &amp;deviceId, String &amp;bands, <span class="keywordtype">int</span> &amp;levelDelta) {</div>
+<div class="line">  equalizerBands[bands] += levelDelta; <span class="comment">// calculate absolute bands level</span></div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s bands %s changed about %d to %d\r\n&quot;</span>, deviceId.c_str(), bands.c_str(), levelDelta, equalizerBands[bands]);</div>
+<div class="line">  levelDelta = equalizerBands[bands]; <span class="comment">// return absolute bands level</span></div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3ff8d93d9483f41bf8504fd3e9cc8f49"></a>
@@ -433,7 +441,15 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="AdjustBrightnessCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> absoluteBrightness;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> onAdjustBrightness(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">int</span> &amp;brightnessDelta) {</div>
+<div class="line">  absoluteBrightness += brightnessDelta; <span class="comment">// calculate absolute brigthness</span></div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s brightness changed about %i to %d\r\n&quot;</span>, deviceId.c_str(), brightnessDelta, absoluteBrightness);</div>
+<div class="line">  brightnessDelta = absoluteBrightness; <span class="comment">// return absolute brightness</span></div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a088a491b8656c376085bc31d558fd05d"></a>
@@ -468,7 +484,15 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="AdjustPercentageCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> absolutePercentage;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> onAdjustPercentage(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">int</span> &amp;percentageDelta) {</div>
+<div class="line">  absolutePercentage += percentageDelta; <span class="comment">// calculate absolute percentage</span></div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s percentage changed about %i to %d\r\n&quot;</span>, deviceId.c_str(), percentageDelta, absolutePercentage);</div>
+<div class="line">  percentageDelta = absolutePercentage; <span class="comment">// return absolute percentage</span></div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>;                     <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3ec3aad26d06f5b943a6906e11afc1f3"></a>
@@ -503,7 +527,15 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="AdjustPowerLevelCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> absolutePowerLevel;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> onAdjustPowerLevel(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">int</span> &amp;powerDelta) {</div>
+<div class="line">  absolutePowerLevel += powerDelta;  <span class="comment">// calculate absolute power level</span></div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s brightness changed about %i to %d\r\n&quot;</span>, deviceId.c_str(), powerDelta, absolutePowerLevel);</div>
+<div class="line">  powerDelta = absolutePowerLevel; <span class="comment">// return absolute power level</span></div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a2ba46d8544d48aee620fff9a930c01ff"></a>
@@ -538,7 +570,15 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="AdjustRangeValueCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> globalRangeValue;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> onAdjustRangeValue(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">int</span> &amp;rangeValueDelta) {</div>
+<div class="line">  globalRangeValue += rangeValue; <span class="comment">// calculate absolute rangeValue</span></div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s range value has been changed about %i to %d\r\n&quot;</span>, deviceId.c_str(), rangeValueDelta, globalRangeValue);</div>
+<div class="line">  rangeValueDelta = globalRangeValue; <span class="comment">// return absolute rangeValue</span></div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a8d55dffbb520779ef95fc29e49032886"></a>
@@ -573,7 +613,15 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="AdjustTargetTemperatureCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">float</span> globalTargetTemp; </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> onAdjustTargetTemperature(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">float</span> &amp;tempDelta) {</div>
+<div class="line">  globalTargetTemp += tempDelta; <span class="comment">// change global target temperature about tempDelta</span></div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s target temperature changed about %f to %f\r\n&quot;</span>, deviceId.c_str(), tempDelta, globalTargetTemp);</div>
+<div class="line">  tempDelta = globalTargetTemp; <span class="comment">// return absolute target temperature</span></div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ac6304129491317f85cee56ca5925dfab"></a>
@@ -609,7 +657,15 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="AdjustVolumeCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> absoluteVolume;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> onAdjustVolume(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">int</span> &amp;volumeDelta, <span class="keywordtype">bool</span> volumeDefault) {</div>
+<div class="line">  absoluteVolume += volumeDelta;  <span class="comment">// calculate absolute volume</span></div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s volume changed about %i to %d (default: %s)\r\n&quot;</span>, deviceId.c_str(), volumeDelta, absoluteVolume, volumeDefault);</div>
+<div class="line">  volumeDelta = absoluteVolume; <span class="comment">// return absolute volume</span></div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aff9938ddc803e4339a3db9b31503e12d"></a>
@@ -644,7 +700,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="BrightnessCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onBrightness(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">int</span> &amp;brightness) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s brightness %d\r\n&quot;</span>, deviceId.c_str(), brightness);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a8bc108630d532266ae36cda5ec7b4857"></a>
@@ -678,7 +738,45 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="ChangeChannel"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="comment">// channelNames used to convert channelNumber into channelName</span></div>
+<div class="line"><span class="comment">// please put in your TV channel names</span></div>
+<div class="line"><span class="comment">// channel numbers starts counting from 0!</span></div>
+<div class="line"><span class="comment">// so &quot;ZDF&quot; is channel 2</span></div>
+<div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span>* channelNames[] = {</div>
+<div class="line">  <span class="stringliteral">&quot;A/V&quot;</span>,</div>
+<div class="line">  <span class="stringliteral">&quot;ard&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;ZDF&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;n. d. r.&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;kabel eins&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;VOX&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;Sat.1&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;ProSieben&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;rtl&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;RTL II&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;SUPER RTL&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;KiKA&quot;</span></div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> tvChannel; <span class="comment">// current channel selected</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#define MAX_CHANNELS sizeof(channelNames) / sizeof(channelNames[0])  </span><span class="comment">// just to determine how many channels are in channelNames array</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// map channelNumbers used to convert channelName into channelNumber</span></div>
+<div class="line"><span class="comment">// This map is initialized in &quot;setupChannelNumbers()&quot; function by using the &quot;channelNames&quot; array</span></div>
+<div class="line">std::map&lt;String, unsigned int&gt; channelNumbers;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> setupChannelNumbers() {</div>
+<div class="line">  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i &lt; MAX_CHANNELS; i++) {</div>
+<div class="line">    channelNumbers[channelNames[i]] = i;</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> onChangeChannel(<span class="keyword">const</span> String &amp;deviceId, String &amp;channel) {</div>
+<div class="line">  tvChannel = channelNumbers[channel]; <span class="comment">// save new channelNumber in tvChannel variable</span></div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Change channel to \&quot;%s\&quot; (channel number %d)\r\n&quot;</span>, channel.c_str(), tvChannel);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ab21b05b6f4a6be7e89a7173b7fafb552"></a>
@@ -712,7 +810,50 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="ChangeChannelNumber"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="comment">// channelNames used to convert channelNumber into channelName</span></div>
+<div class="line"><span class="comment">// please put in your TV channel names</span></div>
+<div class="line"><span class="comment">// channel numbers starts counting from 0!</span></div>
+<div class="line"><span class="comment">// so &quot;ZDF&quot; is channel 2</span></div>
+<div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span>* channelNames[] = {</div>
+<div class="line">  <span class="stringliteral">&quot;A/V&quot;</span>,</div>
+<div class="line">  <span class="stringliteral">&quot;ard&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;ZDF&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;n. d. r.&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;kabel eins&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;VOX&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;Sat.1&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;ProSieben&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;rtl&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;RTL II&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;SUPER RTL&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;KiKA&quot;</span></div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> tvChannel; <span class="comment">// current channel selected</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#define MAX_CHANNELS sizeof(channelNames) / sizeof(channelNames[0])  </span><span class="comment">// just to determine how many channels are in channelNames array</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// map channelNumbers used to convert channelName into channelNumber</span></div>
+<div class="line"><span class="comment">// This map is initialized in &quot;setupChannelNumbers()&quot; function by using the &quot;channelNames&quot; array</span></div>
+<div class="line">std::map&lt;String, unsigned int&gt; channelNumbers;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> setupChannelNumbers() {</div>
+<div class="line">  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i &lt; MAX_CHANNELS; i++) {</div>
+<div class="line">    channelNumbers[channelNames[i]] = i;</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> onChangeChannelNumber(<span class="keyword">const</span> String&amp; deviceId, <span class="keywordtype">int</span> channelNumber, String&amp; channelName) {</div>
+<div class="line">  tvChannel = channelNumber; <span class="comment">// update tvChannel to new channel number</span></div>
+<div class="line">  <span class="keywordflow">if</span> (tvChannel &lt; 0) tvChannel = 0;</div>
+<div class="line">  <span class="keywordflow">if</span> (tvChannel &gt; MAX_CHANNELS-1) tvChannel = MAX_CHANNELS-1;</div>
+<div class="line"> </div>
+<div class="line">  channelName = channelNames[tvChannel]; <span class="comment">// return the channelName</span></div>
+<div class="line"> </div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Change to channel to %d (channel name \&quot;%s\&quot;)\r\n&quot;</span>, tvChannel, channelName.c_str());</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad8bcf09f6da3f41fffb001868cd3f84e"></a>
@@ -751,7 +892,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="ColorCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onColor(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">byte</span> &amp;r, <span class="keywordtype">byte</span> &amp;g, <span class="keywordtype">byte</span> &amp;b) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s color is set to red=%d, green=%d, blue=%d\r\n&quot;</span>, deviceId.c_str(), r, g, b);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a9828094e72d45dc55a1023fd677f0cc5"></a>
@@ -796,7 +941,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="ColorTemperatureCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onColorTemperature(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">int</span> &amp;colorTemperature) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s colorTemperature is set to %i\r\n&quot;</span>, deviceId.c_str(), colorTemperature);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af256b98e6806c944c9c386821a45d01e"></a>
@@ -859,7 +1008,15 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="DecreaseColorTemperatureCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> globalColorTemperature; </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> onDecreaseColorTemperature(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">int</span> &amp;colorTemperature) {</div>
+<div class="line">  globalColorTemperature -= 1000; <span class="comment">// decrease globalColorTemperature about 1000;</span></div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s colorTemperature changed %i\r\n&quot;</span>, deviceId.c_str(), colorTemperature);</div>
+<div class="line">  colorTemperature = globalColorTemperature; <span class="comment">// return new colorTemperature</span></div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a6cc95068e9f18665e76c37a621ca2ceb"></a>
@@ -918,7 +1075,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="DoorStateCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onDoorState(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">bool</span> &amp;doorState) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s garage door is now %s\r\n&quot;</span>, deviceId.c_str(), doorState?<span class="stringliteral">&quot;closed&quot;</span>:<span class="stringliteral">&quot;open&quot;</span>);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a38dc8a8eb0e769ed32348b7166e39ad3"></a>
@@ -954,7 +1115,15 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="GenericAdjustRangeValueCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> globalRangeValue;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> onAdjustRangeValue(<span class="keyword">const</span> String &amp;deviceId, <span class="keyword">const</span> String&amp; instance, <span class="keywordtype">int</span> &amp;rangeValueDelta) {</div>
+<div class="line">  globalRangeValue += rangeValueDelta; <span class="comment">// calculate absolute rangeValue</span></div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s range value for %s has been changed about %i to %d\r\n&quot;</span>, deviceId.c_str(), instance.c_str(), rangeValueDelta, globalRangeValue);</div>
+<div class="line">  rangeValueDelta = globalRangeValue; <span class="comment">// return absolute rangeValue</span></div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>;                        <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ac29fade927b50eac618999f84b29d02b"></a>
@@ -990,7 +1159,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="GenericModeCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onSetMode(<span class="keyword">const</span> String &amp;deviceId, <span class="keyword">const</span> String &amp;instance, String &amp;mode) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s mode %s set to %s\r\n&quot;</span>, deviceId.c_str(), instance.c_str(), mode);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a0acdc221a5d0592fea85aa0c7f236cf0"></a>
@@ -1025,7 +1198,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="SetRangeValueCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onRangeValue(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">int</span> &amp;rangeValue) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s range value has been set to %d\r\n&quot;</span>, deviceId.c_str(), rangeValue);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a29997b424c4b141240a08d26406e4a14"></a>
@@ -1061,7 +1238,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="GenericSetRangeValueCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onRangeValue(<span class="keyword">const</span> String &amp;deviceId, <span class="keyword">const</span> String &amp;instance, <span class="keywordtype">int</span> &amp;rangeValue) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s range value for %s has been set to %d\r\n&quot;</span>, deviceId.c_str(), instance.c_str(), rangeValue);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a87371479ad42795e9dc9344bd02a6312"></a>
@@ -1099,7 +1280,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="ToggleStateCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onToggleState(<span class="keyword">const</span> String &amp;deviceId, <span class="keyword">const</span> String &amp;instance, <span class="keywordtype">bool</span> &amp;state) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s state \&quot;%s\&quot; turned %s\r\n&quot;</span>, deviceId.c_str(), instance.c_str(), state ? <span class="stringliteral">&quot;on&quot;</span> : <span class="stringliteral">&quot;off&quot;</span>);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aed3d41935f8162074c2a2cc0168164dd"></a>
@@ -1139,7 +1324,15 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="IncreaseColorTemperatureCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> globalColorTemperature; </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> onIncreaseColorTemperature(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">int</span> &amp;colorTemperature) {</div>
+<div class="line">  globalColorTemperature += 1000; <span class="comment">// increase globalColorTemperature about 1000;</span></div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s colorTemperature changed to %i\r\n&quot;</span>, deviceId.c_str(), colorTemperature);</div>
+<div class="line">  colorTemperature = globalColorTemperature; <span class="comment">// return new colorTemperature</span></div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3dd7e26af9b9026ccc6f5328f563a8c3"></a>
@@ -1176,7 +1369,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="KeystrokeCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onKeystroke(<span class="keyword">const</span> String&amp; deviceId, String &amp;keystroke) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s, key %s pressed\r\n&quot;</span>, deviceId.c_str(), keystroke.c_str());</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a53b5285d1315f98fa2c5dd27c7547ea5"></a>
@@ -1254,7 +1451,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="MediaControlCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onMediaControl(<span class="keyword">const</span> String &amp;deviceId, String &amp;control) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s: %s\r\n&quot;</span>, deviceId.c_str(), control.c_str());</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aa2d0fe1a7983a8ec5e8fb3e69a5af60f"></a>
@@ -1291,7 +1492,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="ModeCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onSetMode(<span class="keyword">const</span> String &amp;deviceId, String &amp;mode) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s is set to mode %s\r\n&quot;</span>, deviceId.c_str(), mode);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a0e4c9c4ee0b526732bc0a868ac4f2c41"></a>
@@ -1328,7 +1533,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="MuteCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onMute(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">bool</span> &amp;mute) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s is %s\r\n&quot;</span>, deviceId.c_str(), mute?<span class="stringliteral">&quot;muted&quot;</span>:<span class="stringliteral">&quot;unmuted&quot;</span>);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a593cf68fdf647f6df605998da4547229"></a>
@@ -1393,7 +1602,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="PowerStateCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onPowerState(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">bool</span> &amp;state) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s turned %s\r\n&quot;</span>, deviceId.c_str(), state?<span class="stringliteral">&quot;on&quot;</span>:<span class="stringliteral">&quot;off&quot;</span>);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5c5f1cca861d6301fabc8691d70fecfb"></a>
@@ -1455,7 +1668,14 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="ResetBandsCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line">std::map&lt;String, int&gt; equalizerBands;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> onResetBands(<span class="keyword">const</span> String &amp;deviceId, String &amp;bands, <span class="keywordtype">int</span> &amp;level) {</div>
+<div class="line">  equalizerBands[bands] = 0; <span class="comment">// reset bands level to 0</span></div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s bands %s reset to %d\r\n&quot;</span>, deviceId.c_str(), bands.c_str(), equalizerBands[bands]);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a2f7a91a480cd401f4df2f7ddda4a8f13"></a>
@@ -1492,7 +1712,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="SelectInput"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onSelectInput(<span class="keyword">const</span> String &amp;deviceId, String &amp;input) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s input changed to %s\r\n&quot;</span>, deviceId.c_str(), input.c_str());</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aaabec5dea3546d52e744a4b0b90c02f4"></a>
@@ -1531,7 +1755,14 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="SetBandsCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line">std::map&lt;String, int&gt; equalizerBands;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> onSetBands(<span class="keyword">const</span> String &amp;deviceId, String &amp;bands, <span class="keywordtype">int</span> &amp;level) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s bands %s set to %d\r\n&quot;</span>, deviceId.c_str(), bands.c_str(), level);</div>
+<div class="line">  equalizerBands[bands] = level; </div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3ab0c4ff332f49884fe6a75cb2a293c2"></a>
@@ -1566,7 +1797,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="SetPercentageCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onSetPercentage(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">int</span> &amp;percentage) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s percentage %d\r\n&quot;</span>, deviceId.c_str(), percentage);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5be6c20c0ba9e9b19bd76d42918451b2"></a>
@@ -1601,7 +1836,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="SetPowerLevelCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onPowerLevel(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">int</span> &amp;powerLevel) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s powerlevel %d\r\n&quot;</span>, deviceId.c_str(), powerLevel);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ade2205b6ca5620b8f283a5432bb3b701"></a>
@@ -1661,7 +1900,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="TargetTemperatureCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onTargetTemperature(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">float</span> &amp;targetTemp) { </div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s target temperature set to %f\r\n&quot;</span>, deviceId.c_str(), targetTemp);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5744ad6a31085c216c2193b0f2d86673"></a>
@@ -1696,7 +1939,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="SetVolumeCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onSetVolume(<span class="keyword">const</span> String &amp;deviceId, <span class="keywordtype">int</span> &amp;volume) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Device %s volume set to %d\r\n&quot;</span>, deviceId.c_str(), volume);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a434616b976d1339be63540d16977fa3d"></a>
@@ -1730,7 +1977,50 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="SkipChannels"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="comment">// channelNames used to convert channelNumber into channelName</span></div>
+<div class="line"><span class="comment">// please put in your TV channel names</span></div>
+<div class="line"><span class="comment">// channel numbers starts counting from 0!</span></div>
+<div class="line"><span class="comment">// so &quot;ZDF&quot; is channel 2</span></div>
+<div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span>* channelNames[] = {</div>
+<div class="line">  <span class="stringliteral">&quot;A/V&quot;</span>,</div>
+<div class="line">  <span class="stringliteral">&quot;ard&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;ZDF&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;n. d. r.&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;kabel eins&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;VOX&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;Sat.1&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;ProSieben&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;rtl&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;RTL II&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;SUPER RTL&quot;</span>, </div>
+<div class="line">  <span class="stringliteral">&quot;KiKA&quot;</span></div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> tvChannel; <span class="comment">// current channel selected</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#define MAX_CHANNELS sizeof(channelNames) / sizeof(channelNames[0])  </span><span class="comment">// just to determine how many channels are in channelNames array</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// map channelNumbers used to convert channelName into channelNumber</span></div>
+<div class="line"><span class="comment">// This map is initialized in &quot;setupChannelNumbers()&quot; function by using the &quot;channelNames&quot; array</span></div>
+<div class="line">std::map&lt;String, unsigned int&gt; channelNumbers;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> setupChannelNumbers() {</div>
+<div class="line">  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i &lt; MAX_CHANNELS; i++) {</div>
+<div class="line">    channelNumbers[channelNames[i]] = i;</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> onSkipChannels(<span class="keyword">const</span> String &amp;deviceId, <span class="keyword">const</span> <span class="keywordtype">int</span> channelCount, String &amp;channelName) {</div>
+<div class="line">  tvChannel += channelCount; <span class="comment">// calculate new channel number</span></div>
+<div class="line">  <span class="keywordflow">if</span> (tvChannel &lt; 0) tvChannel = 0;</div>
+<div class="line">  <span class="keywordflow">if</span> (tvChannel &gt; MAX_CHANNELS-1) tvChannel = MAX_CHANNELS-1;</div>
+<div class="line">  channelName = String(channelNames[tvChannel]); <span class="comment">// return channel name</span></div>
+<div class="line"> </div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Skip channel: %i (number: %i / name: \&quot;%s\&quot;)\r\n&quot;</span>, channelCount, tvChannel, channelName.c_str());</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a6cb473352a45a2ae76a46a4292c95a8c"></a>
@@ -1765,7 +2055,11 @@ Example-Code</h1>
 </dl>
 <h1><a class="anchor" id="ThermostatModeCallback"></a>
 Example-Code</h1>
-<div class="fragment"></div><!-- fragment -->
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> onThermostatMode(<span class="keyword">const</span> String&amp; deviceId, String&amp; mode) {</div>
+<div class="line">  Serial.printf(<span class="stringliteral">&quot;Deivce %s thermostat mode set to %s\r\n&quot;</span>, deviceId.c_str(), mode);</div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// request handled properly</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
