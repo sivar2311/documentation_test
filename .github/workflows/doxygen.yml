@@ -19,7 +19,7 @@ jobs:
       - name: Clone external repository
         run: |
           git clone https://github.com/sinricpro/esp8266-esp32-sdk
-          cd SinricPro
+          cd esp8266-esp32-sdk
           # Optional: Du kannst auch eine bestimmte Branch oder einen Commit klonen
           # git checkout BRANCH_NAME
 
