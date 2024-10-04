@@ -13,7 +13,7 @@ jobs:
     steps:
       # Schritt 1: Check-out des aktuellen Repositorys
       - name: Checkout current repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Schritt 2: Klonen des anderen Repositorys
       - name: Clone external repository
