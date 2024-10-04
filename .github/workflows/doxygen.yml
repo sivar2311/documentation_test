@@ -30,7 +30,7 @@ jobs:
       # Schritt 4: Führe Doxygen aus, um die Dokumentation zu generieren
       - name: Generate Documentation
         run: |
-          cd SinricPro  # Wechsle ins Verzeichnis des geklonten Repos
+          # cd SinricPro  # Wechsle ins Verzeichnis des geklonten Repos
           doxygen Doxyfile
 
       # Schritt 5: Veröffentlichung der Dokumentation (z.B. auf gh-pages)
