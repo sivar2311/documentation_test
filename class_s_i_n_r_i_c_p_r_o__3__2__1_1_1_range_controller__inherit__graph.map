@@ -1,0 +1,9 @@
+<map id="RangeController&lt; T &gt;" name="RangeController&lt; T &gt;">
+<area shape="rect" id="node1" title="RangeControllerFloatInt." alt="" coords="5,78,171,105"/>
+<area shape="rect" id="node2" href="$class_s_i_n_r_i_c_p_r_o__3__2__1_1_1_range_controller.html" title=" " alt="" coords="380,5,579,47"/>
+<area shape="rect" id="node4" href="$class_s_i_n_r_i_c_p_r_o__3__2__1_1_1_range_controller.html" title=" " alt="" coords="380,71,579,112"/>
+<area shape="rect" id="node6" href="$class_s_i_n_r_i_c_p_r_o__3__2__1_1_1_range_controller.html" title=" " alt="" coords="380,136,579,177"/>
+<area shape="rect" id="node3" href="$class_s_i_n_r_i_c_p_r_o__3__2__1_1_1_sinric_pro_blinds.html" title="Device to control interior blinds." alt="" coords="643,13,762,39"/>
+<area shape="rect" id="node5" href="$class_s_i_n_r_i_c_p_r_o__3__2__1_1_1_sinric_pro_fan_u_s.html" title="Device to control a fan with on / off commands and its speed by a range value." alt="" coords="643,78,762,105"/>
+<area shape="rect" id="node7" href="$class_s_i_n_r_i_c_p_r_o__3__2__1_1_1_sinric_pro_window_a_c.html" title="Device to control Window Air Conditioner." alt="" coords="628,143,777,170"/>
+</map>

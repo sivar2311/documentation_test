@@ -1,0 +1,8 @@
+<map id="SinricProSwitch" name="SinricProSwitch">
+<area shape="rect" id="node1" title="Device suporting basic on / off command." alt="" coords="615,64,737,91"/>
+<area shape="rect" id="node2" href="$class_s_i_n_r_i_c_p_r_o__3__2__1_1_1_sinric_pro_device.html" title="Base class for all device types." alt="" coords="414,5,538,32"/>
+<area shape="rect" id="node3" href="$class_s_i_n_r_i_c_p_r_o__3__2__1_1_1_push_notification.html" title=" " alt="" coords="387,57,565,98"/>
+<area shape="rect" id="node4" href="$class_s_i_n_r_i_c_p_r_o__3__2__1_1_1_push_notification.html" title="PushNotification." alt="" coords="21,64,188,91"/>
+<area shape="rect" id="node5" href="$class_s_i_n_r_i_c_p_r_o__3__2__1_1_1_power_state_controller.html" title=" " alt="" coords="396,122,556,163"/>
+<area shape="rect" id="node6" href="$class_s_i_n_r_i_c_p_r_o__3__2__1_1_1_power_state_controller.html" title="PowerStateController." alt="" coords="5,129,204,156"/>
+</map>
