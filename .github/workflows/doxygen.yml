@@ -11,31 +11,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Schritt 1: Check-out des aktuellen Repositorys
+      # Step 1: Check-out current repository
       - name: Checkout current repository
         uses: actions/checkout@v4
 
-      # Schritt 2: Klonen des anderen Repositorys
+      # Step 2: Clone SinricPro repository
       - name: Clone external repository
         run: |
           git clone https://github.com/sinricpro/esp8266-esp32-sdk
-          # cd esp8266-esp32-sdk
-          # Optional: Du kannst auch eine bestimmte Branch oder einen Commit klonen
-          # git checkout BRANCH_NAME
 
-      # Schritt 3: Installiere Doxygen
+      # Step 3: Install Doxygen
       - name: Install Doxygen
         run: |
           sudo apt-get install -y doxygen graphviz
 
-      # Schritt 4: Führe Doxygen aus, um die Dokumentation zu generieren
+      # Step 4: Generate Documentation
       - name: Generate Documentation
         run: |
-          # ls -l
-          # cd SinricPro  # Wechsle ins Verzeichnis des geklonten Repos
           doxygen Doxyfile
 
-      # Schritt 5: Veröffentlichung der Dokumentation (z.B. auf gh-pages)
+      # Step 5: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
